@@ -39,8 +39,8 @@ body {
   left: 300px;
   z-index: -1;
   display: block;
-  width: 400px;
-  height: 300px;
+  width: 500px;
+  height: 400px;
   content: " ";
   background-repeat: no-repeat;
   background-position: 50% 0;
@@ -57,7 +57,7 @@ body {
   font: 12px sans-serif;
   color: white;
   text-align: center;
-  background: #551aaf;
+  background: #005c86;
   border: 0;
   border-radius: 10px;
 }

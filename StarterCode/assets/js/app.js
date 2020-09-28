@@ -1,10 +1,10 @@
-let svgWidth = 960;
-let svgHeight = 500;
+let svgWidth = 950;
+let svgHeight = 550;
 
 let margin = {
   top: 20,
   right: 40,
-  bottom: 80,
+  bottom: 100,
   left: 100
 };
 
@@ -77,11 +77,8 @@ function updateToolTip(chosenXAxis, circlesGroup) {
   let toolTip = d3.tip()
     .attr("class", "tooltip")
     .offset([80, -60])
-    .style("opacity", 0.7)
-    .style("background-color", "lightgrey")
-    .style("padding", "3px")
+    .style("opacity", 0.5)
     .style("border-radius","2.5px")
-    .style("color", "black")
     .html(function(d) {
       return (`${d.state}<br>${label} ${d[chosenXAxis]}<br> Obese(%) ${d.obesity}`);
     });
@@ -148,11 +145,16 @@ d3.csv("assets/data/data.csv").then(function(data, err) {
     .attr("fill", "lightblue")
     .attr("opacity", ".5");
 
+
+
+
   // Create group for two x-axis labels
   let labelsGroup = chartGroup.append("g")
     .attr("transform", `translate(${width / 2}, ${height + 20})`);
-
-  let incomeLabel = labelsGroup.append("text")
+  
+  
+  
+    let incomeLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 20)
     .attr("value", "income") // value to grab for event listener
@@ -183,6 +185,7 @@ d3.csv("assets/data/data.csv").then(function(data, err) {
     .text("Obesity (%)")
     .style("color", "black");
 
+ 
   // updateToolTip function above csv import
   var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
 
@@ -207,7 +210,7 @@ d3.csv("assets/data/data.csv").then(function(data, err) {
 
         // updates circles with new x values
         circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis);
-
+         
         // updates tooltips with new info
         circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
 
@@ -237,7 +240,7 @@ d3.csv("assets/data/data.csv").then(function(data, err) {
         else {
             povertyLabel
                 .classed("active", false)
-                .classed("inactive", false);
+                .classed("inactive", true);
             ageLabel
                 .classed("active", false)
                 .classed("inactive", true);
